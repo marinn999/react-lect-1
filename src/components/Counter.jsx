@@ -6,12 +6,11 @@ const Counter = () => {
   const handleClick = () => {
     setCounter(counter + 1);
   };
-  const handleMinusClick = (name) => {
-    console.log(`Hello ${name}`);
+  const handleMinusClick = () => {
+    setCounter(counter - 1);
   };
   const handleReset = (e) => {
-    console.log(e);
-    e.target.innerHTML = "Hello Button!";
+    setCounter(0);
   };
 
   return (
@@ -19,7 +18,7 @@ const Counter = () => {
       <div>
         <h1>{counter}</h1>
         <div>
-          <button onClick={() => handleMinusClick("Marina")}>minus</button>
+          <button onClick={handleMinusClick}>minus</button>
           <button onClick={handleReset}>reset</button>
           <button onClick={handleClick}>plus</button>
         </div>
