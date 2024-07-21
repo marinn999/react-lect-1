@@ -4,10 +4,16 @@ const Counter = () => {
   const [counter, setCounter] = useState(0);
 
   const handleClick = () => {
-    setCounter(counter + 1);
+    if (counter >= 10) {
+      return alert("That is enough");
+    }
+    setCounter((prevState) => prevState + 1);
   };
   const handleMinusClick = () => {
-    setCounter(counter - 1);
+    if (counter <= 0) {
+      return alert("You can not change counter less than 0");
+    }
+    setCounter((prev) => prev - 1);
   };
   const handleReset = (e) => {
     setCounter(0);
