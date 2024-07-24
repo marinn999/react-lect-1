@@ -4,9 +4,9 @@ import ToDoList from "./ToDoList";
 const App = () => {
   return (
     <>
-      {/* <Counter /> */}
+      <Counter />
       {/* <ColorPicker /> */}
-      <ToDoList />
+      {/* <ToDoList /> */}
     </>
   );
 };
