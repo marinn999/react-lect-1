@@ -4,6 +4,8 @@ import Counter from "./Counter";
 import Modal from "./Modal";
 import ToDoList from "./ToDoList";
 import UncontrolledForm from "./UncontrolledForm";
+import ControlledForm from "./ControlledForm";
+import ExampleForm from "./useIdForm/ExampleForm";
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,7 +34,9 @@ const App = () => {
         </Modal>
       )} */}
 
-      <UncontrolledForm />
+      {/* <UncontrolledForm /> */}
+      {/* <ControlledForm /> */}
+      <ExampleForm />
     </>
   );
 };
