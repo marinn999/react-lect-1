@@ -3,6 +3,7 @@ import ColorPicker from "./ColorPicker";
 import Counter from "./Counter";
 import Modal from "./Modal";
 import ToDoList from "./ToDoList";
+import UncontrolledForm from "./UncontrolledForm";
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +20,7 @@ const App = () => {
 
       {/* <ColorPicker /> */}
 
-      <ToDoList />
+      {/* <ToDoList /> */}
 
       {/* <button onClick={handleOpen}>Open modal</button>
       {isOpen && (
@@ -30,6 +31,8 @@ const App = () => {
           reprehenderit dignissimos aperiam.
         </Modal>
       )} */}
+
+      <UncontrolledForm />
     </>
   );
 };
