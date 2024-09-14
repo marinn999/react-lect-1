@@ -6,6 +6,7 @@ import ToDoList from "./ToDoList";
 import UncontrolledForm from "./UncontrolledForm";
 import ControlledForm from "./ControlledForm";
 import ExampleForm from "./useIdForm/ExampleForm";
+import OrderForm from "./orderForm/OrderForm";
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +37,8 @@ const App = () => {
 
       {/* <UncontrolledForm /> */}
       {/* <ControlledForm /> */}
-      <ExampleForm />
+      {/* <ExampleForm /> */}
+      <OrderForm />
     </>
   );
 };

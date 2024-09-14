@@ -24,12 +24,14 @@ const Counter = () => {
     }
     setCounter((prevState) => prevState + step);
   };
+
   const handleMinusClick = () => {
     if (counter <= 0) {
       return alert("You can not change counter less than 0");
     }
     setCounter((prev) => prev - step);
   };
+
   const handleReset = (e) => {
     setCounter(0);
     setStep(1);
@@ -39,6 +41,10 @@ const Counter = () => {
     <div>
       <div>
         <h1>{counter}</h1>
+        {/* Все що ми відправляємо з інпута маємо конвертувати в намбер. 
+        (e.target.value) пишу зі знаком +, бо таким чином не відбувається
+        конкатинація чисел,  а це називається "унарний плюс", що робить те
+        саме шо i конструктор number - приводить рядок до числа */}
         <input type="text" onChange={(e) => setStep(+e.target.value)} />
         <div>
           <button onClick={handleMinusClick}>minus</button>
