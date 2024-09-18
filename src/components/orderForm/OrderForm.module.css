@@ -37,3 +37,6 @@ span {
     cursor: pointer;
   }
 }
+.error {
+  color: red;
+}

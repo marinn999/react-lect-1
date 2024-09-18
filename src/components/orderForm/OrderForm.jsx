@@ -1,6 +1,8 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import s from "./OrderForm.module.css";
+import * as Yup from "yup";
+import { ErrorMessage } from "formik";
 
 const OrderForm = () => {
   const initialValues = {
@@ -19,9 +21,34 @@ const OrderForm = () => {
     //Стандартна функція options.resetForm()
     options.resetForm();
   };
+
+  const re =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+  const FeedbackSchema = Yup.object().shape({
+    username: Yup.string()
+      .min(5, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    email: Yup.string()
+      .min(8, "Too Short!")
+      .matches(re, "this is not email")
+      .required("required!"),
+    age: Yup.number()
+      .min(1, "Type ur age")
+      .max(2, "Ur not so old")
+      .required("required")
+      .positive(),
+    petType: Yup.string().oneOf(["Собака", "Кошеня"]).required("required"),
+  });
+
   return (
     <div className={s.formWrapper}>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={FeedbackSchema}
+      >
         {/* Якщо звичайна форма, то можна без колбека {() => <Form></Form>}. Так
         пишемо для того, щоб зробити кнопку активною лише при прийнятті згоди «я
         прочитав правила» */}
@@ -34,6 +61,7 @@ const OrderForm = () => {
                 className={s.input}
                 placeholder="Введіть імʼя"
               />
+              <ErrorMessage name="username" component="p" className={s.error} />
             </label>
             <label className={s.label}>
               <span>Електронна пошта: </span>
@@ -43,6 +71,7 @@ const OrderForm = () => {
                 className={s.input}
                 placeholder="Введіть пошту"
               />
+              <ErrorMessage name="email" component="p" className={s.error} />
             </label>
             <label className={s.label}>
               <span>Місто: </span>
@@ -60,6 +89,7 @@ const OrderForm = () => {
                 className={s.input}
                 placeholder="Введіть вік"
               />
+              <ErrorMessage name="age" component="p" className={s.error} />
             </label>
             <label className={s.label}>
               <span>Вид улюбленця: </span>
@@ -74,6 +104,7 @@ const OrderForm = () => {
                 <option value="Папуга">Папуга</option>
                 <option value="Крокодил">Крокодил</option>
               </Field>
+              <ErrorMessage name="petType" component="p" className={s.error} />
             </label>
 
             <label className={s.label}>

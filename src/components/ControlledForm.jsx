@@ -36,7 +36,7 @@ const ControlledForm = () => {
 
   // Тепер в Chrome у вкладці Components можна побачити, що відображені всі введені дані як хук: hooks
 
-  // 1State
+  // State
   // :
   // username
   // :"Lana"
